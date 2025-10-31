@@ -1,0 +1,33 @@
+<div class="listar-container">
+  <div class="listar-card">
+    <h2 class="title">Gestión de Tipos de Festivo</h2>
+
+    <form [formGroup]="form" (ngSubmit)="guardar()" class="form-section">
+      <input formControlName="tipo" placeholder="Nombre del tipo de festivo" />
+      <button type="submit" class="btn-save">{{ modoEdicion ? 'Actualizar' : 'Agregar' }}</button>
+      <button type="button" (click)="cancelar()" class="btn-cancel" *ngIf="modoEdicion">Cancelar</button>
+    </form>
+
+    <div class="table-container">
+      <table class="styled-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Tipo</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let tf of dataSource">
+            <td>{{ tf.id }}</td>
+            <td>{{ tf.tipo }}</td>
+            <td>
+              <button class="btn-edit" (click)="editar(tf)">Editar</button>
+              <button class="btn-delete" (click)="eliminar(tf.id)">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

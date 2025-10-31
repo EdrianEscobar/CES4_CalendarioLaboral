@@ -1,0 +1,106 @@
+<div class="festivos-container">
+  <mat-card class="festivos-card">
+    <mat-toolbar color="primary" class="toolbar">
+      <span>Gestión de Festivos</span>
+    </mat-toolbar>
+
+    <form [formGroup]="form" (ngSubmit)="guardar()" class="festivo-form">
+      <div class="form-grid">
+        <mat-form-field appearance="fill">
+          <mat-label>Nombre</mat-label>
+          <input matInput formControlName="nombre" placeholder="Ej: Día de la Familia">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Día</mat-label>
+          <input matInput type="number" formControlName="dia" placeholder="Ej: 25">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Mes</mat-label>
+          <input matInput type="number" formControlName="mes" placeholder="Ej: 12">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Días desde Pascua</mat-label>
+          <input matInput type="number" formControlName="diasPascua" placeholder="0 si no aplica">
+        </mat-form-field>
+
+        <div formGroupName="pais">
+          <mat-form-field appearance="fill">
+            <mat-label>ID País</mat-label>
+            <input matInput type="number" formControlName="id" placeholder="Ej: 1">
+          </mat-form-field>
+        </div>
+
+        <div formGroupName="tipo">
+          <mat-form-field appearance="fill">
+            <mat-label>ID Tipo</mat-label>
+            <input matInput type="number" formControlName="id" placeholder="Ej: 2">
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="buttons">
+        <button mat-raised-button color="primary" type="submit">
+          {{ modoEdicion ? 'Actualizar' : 'Agregar' }}
+        </button>
+        <button mat-stroked-button color="warn" type="button" (click)="cancelar()">Cancelar</button>
+      </div>
+    </form>
+
+    <div class="listar-container">
+      <div class="listar-card">
+        <h2 class="title">Listado de Festivos</h2>
+
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 full-width-table">
+          
+          <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef> ID </th>
+            <td mat-cell *matCellDef="let festivo"> {{ festivo.id }} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="nombre">
+            <th mat-header-cell *matHeaderCellDef> Nombre </th>
+            <td mat-cell *matCellDef="let festivo"> {{ festivo.nombre }} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="dia">
+            <th mat-header-cell *matHeaderCellDef> Día </th>
+            <td mat-cell *matCellDef="let festivo"> {{ festivo.dia }} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="mes">
+            <th mat-header-cell *matHeaderCellDef> Mes </th>
+            <td mat-cell *matCellDef="let festivo"> {{ festivo.mes }} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="pais">
+            <th mat-header-cell *matHeaderCellDef> País </th>
+            <td mat-cell *matCellDef="let festivo"> {{ festivo.pais?.nombre || '-' }} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="tipo">
+            <th mat-header-cell *matHeaderCellDef> Tipo </th>
+            <td mat-cell *matCellDef="let festivo"> {{ festivo.tipo?.tipo || '-' }} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="acciones">
+            <th mat-header-cell *matHeaderCellDef> Acciones </th>
+            <td mat-cell *matCellDef="let festivo">
+              <button mat-icon-button color="primary" (click)="editar(festivo)" title="Editar">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-icon-button color="warn" (click)="eliminar(festivo.id)" title="Eliminar">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </div>
+    </div>
+  </mat-card>
+</div>
