@@ -1,0 +1,49 @@
+:host {
+  display: block; 
+  min-height: 100vh;
+  padding: 40px 20px; 
+  background: linear-gradient(135deg, #f0f7f6, #d4f7f1);
+}
+
+.card {
+  max-width: 800px;
+  margin: 0 auto;
+  border: none; 
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); 
+  overflow: hidden; 
+}
+
+.card-header {
+  color: white; 
+  text-align: center;
+  padding: 1.5rem 1rem;
+  border-bottom: none; 
+  background-color: #00796b; 
+}
+
+.card-header h3 {
+  margin: 0; 
+  font-weight: 600;
+}
+
+.btn-primary {
+  background-color: #00796b;
+  border-color: #00796b;
+  font-weight: 600;
+  padding: 0.6rem 1rem;
+}
+
+.btn-primary:hover {
+  background-color: #004d40; 
+  border-color: #004d40;
+}
+
+.card-body {
+  padding: 2rem; 
+}
+
+.card-footer {
+  background-color: #f8f9fa; 
+  padding: 1.5rem 2rem;
+}

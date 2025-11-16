@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 export interface Pais {
   id: number;
   nombre: string;
-}
+} 
 
 @Injectable({
   providedIn: 'root'

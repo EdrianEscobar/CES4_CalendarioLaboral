@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 export interface Festivo {
@@ -39,5 +39,14 @@ export class FestivosService {
 
   eliminar(id: number): Observable<boolean> {
     return this.http.delete<boolean>(`${this.apiUrl}/eliminar/${id}`);
+  }
+
+  public esFestivo(fecha: string, idPais: number): Observable<boolean> {
+    const partesFecha = fecha.split('-').map(Number); 
+    const año = partesFecha[0];
+    const mes = partesFecha[1]; 
+    const dia = partesFecha[2];
+    const url = `${this.apiUrl}/verificar/${idPais}/${año}/${mes}/${dia}`;
+    return this.http.get<boolean>(url);
   }
 }

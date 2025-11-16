@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ListarCalendario } from './listar/listar';
 
 const routes: Routes = [
-  { path: '', component: ListarCalendario } // 👈 esta es la clave
+  { path: '', component: ListarCalendario } 
 ];
 
 @NgModule({
