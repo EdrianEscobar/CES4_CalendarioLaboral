@@ -1,0 +1,61 @@
+<div class="listar-container">
+  <div class="listar-card">
+    
+    <h2 class="title">
+      Calendario de Festivos Anual
+    </h2>
+
+    <div class="form-container search-layout">
+      
+      <select 
+        [(ngModel)]="idPaisSeleccionado" 
+        class="form-input"
+      >
+        <option [value]="0">-- Seleccione País --</option>
+        <option *ngFor="let pais of paises" [value]="pais.id">
+          {{ pais.nombre }}
+        </option>
+      </select>
+
+      <input
+        type="number"
+        [(ngModel)]="anioSeleccionado"
+        placeholder="Año (Ej: 2025)"
+        class="form-input"
+      />
+
+      <button 
+        type="button" 
+        class="btn primary" 
+        (click)="buscarFestivos()"
+        [disabled]="cargando"
+      >
+        {{ cargando ? '...' : 'Buscar' }}
+      </button>
+
+    </div>
+
+    <div class="table-container" *ngIf="busquedaRealizada">
+      
+      <div *ngIf="festivos.length === 0" style="text-align: center; padding: 20px; color: #666;">
+        No se encontraron festivos.
+      </div>
+
+      <table class="styled-table" *ngIf="festivos.length > 0">
+        <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>Celebración</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let festivo of festivos">
+            <td>{{ festivo.fecha | date:'EEEE, d \de MMMM' }}</td>
+            <td>{{ festivo.nombre }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>

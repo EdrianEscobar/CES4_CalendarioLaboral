@@ -1,49 +1,136 @@
+/* --- ESTILOS GENERALES (Iguales a Calendario Anual) --- */
 :host {
-  display: block; 
+  display: block;
+}
+
+.listar-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 20px;
+  /* El mismo fondo verde degradado */
+  background: linear-gradient(135deg, #f0f7f6 0%, #d4f7f1 100%);
   min-height: 100vh;
-  padding: 40px 20px; 
-  background: linear-gradient(135deg, #f0f7f6, #d4f7f1);
+  width: 100%;
 }
 
-.card {
+.listar-card {
+  background-color: white;
+  width: 100%;
   max-width: 800px;
-  margin: 0 auto;
-  border: none; 
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); 
-  overflow: hidden; 
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-.card-header {
-  color: white; 
+.title {
+  color: #00796b; /* Verde corporativo */
   text-align: center;
-  padding: 1.5rem 1rem;
-  border-bottom: none; 
-  background-color: #00796b; 
+  margin-bottom: 30px;
+  font-size: 1.8rem;
+  font-weight: bold;
 }
 
-.card-header h3 {
-  margin: 0; 
-  font-weight: 600;
+/* --- FORMULARIO --- */
+.form-container {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+  align-items: flex-end; /* Alinea los inputs y el botón abajo */
+  justify-content: center;
+  flex-wrap: wrap; /* Permite que baje a otra línea en celulares */
 }
 
-.btn-primary {
-  background-color: #00796b;
+.input-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* Todos ocupan el mismo ancho */
+  min-width: 200px;
+}
+
+.input-label {
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.form-input:focus {
   border-color: #00796b;
-  font-weight: 600;
-  padding: 0.6rem 1rem;
 }
 
-.btn-primary:hover {
-  background-color: #004d40; 
-  border-color: #004d40;
+/* --- BOTÓN --- */
+.button-group {
+  flex: 0 0 auto; /* El botón no se estira, ocupa lo que necesita */
 }
 
-.card-body {
-  padding: 2rem; 
+.btn {
+  padding: 12px 30px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 500;
+  height: 45px; /* Altura fija para alinear con inputs */
 }
 
-.card-footer {
-  background-color: #f8f9fa; 
-  padding: 1.5rem 2rem;
+.primary {
+  background-color: #00796b;
+  color: white;
+  transition: background 0.3s;
+}
+
+.primary:hover {
+  background-color: #004d40;
+}
+
+.primary:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* --- RESULTADOS (Cajas de colores) --- */
+.result-container {
+  margin-top: 20px;
+  animation: fadeIn 0.5s ease;
+}
+
+.result-box {
+  padding: 15px 20px;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.success {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  border: 1px solid #c8e6c9;
+}
+
+.not-festivo {
+  background-color: #e3f2fd;
+  color: #1565c0;
+  border: 1px solid #bbdefb;
+}
+
+.error {
+  background-color: #ffebee;
+  color: #c62828;
+  border: 1px solid #ffcdd2;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }

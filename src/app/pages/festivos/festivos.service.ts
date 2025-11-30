@@ -12,6 +12,11 @@ export interface Festivo {
   tipo: { id: number; tipo: string };
 }
 
+export interface FestivoDto {
+  nombre: string;
+  fecha: string; // Viene como 'YYYY-MM-DD'
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -34,7 +39,7 @@ export class FestivosService {
   }
 
   modificar(festivo: Festivo): Observable<Festivo> {
-    return this.http.put<Festivo>(`${this.apiUrl}/modificar`, festivo);
+    return this.http.put<Festivo>(`${this.apiUrl}/modificar`, festivo); 
   }
 
   eliminar(id: number): Observable<boolean> {
@@ -48,5 +53,9 @@ export class FestivosService {
     const dia = partesFecha[2];
     const url = `${this.apiUrl}/verificar/${idPais}/${año}/${mes}/${dia}`;
     return this.http.get<boolean>(url);
+  }
+
+  listarPorAnio(idPais: number, anio: number): Observable<FestivoDto[]> {
+    return this.http.get<FestivoDto[]>(`${this.apiUrl}/listar/${idPais}/${anio}`);
   }
 }
