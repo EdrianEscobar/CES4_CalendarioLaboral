@@ -1,12 +1,13 @@
 import { Routes } from '@angular/router';
 import { Home } from './home/home';
+import { HomeComponent } from './pages/home/home';
 
 export const routes: Routes = [
     {
         path: 'login',
         loadChildren: () => import('./auth/auth-module').then(m => m.AuthModule)
     },
-     { path: 'home', component: Home },
+     { path: '', component: HomeComponent }, 
     {
         path: '',
         redirectTo: '/login',

@@ -1,4 +1,3 @@
-/* Contenedor Principal (Fondo) */
 :host {
   display: block;
 }
@@ -6,48 +5,38 @@
 .listar-container {
   display: flex;
   justify-content: center;
-  align-items: flex-start; /* Alinea arriba para que no quede centrado verticalmente si es muy largo */
+  align-items: flex-start; 
   padding: 40px 20px;
-  
-  /* --- AQUÍ ESTÁ EL COLOR DE FONDO --- */
-  /* Usamos el degradado verde que te gustó */
   background: linear-gradient(135deg, #f0f7f6 0%, #d4f7f1 100%);
-  
-  /* Asegura que ocupe TODA la altura de la pantalla como mínimo */
   min-height: 100vh; 
   width: 100%;
 }
 
-/* La Tarjeta Blanca */
 .listar-card {
   background-color: white;
   width: 100%;
-  max-width: 900px; /* Un poco más ancho para que quepa la tabla */
+  max-width: 900px; 
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Título */
 .title {
   color: #333;
   text-align: center;
   margin-bottom: 30px;
   font-size: 1.8rem;
   font-weight: bold;
-  /* Si quieres el color morado/azul de tus otras vistas: */
-  color: #00796b; /* Usando el verde que te gustó, o cámbialo al morado */
+  color: #00796b; 
 }
 
-/* Contenedor del Formulario (Alineación horizontal) */
 .form-container {
   display: flex;
-  gap: 15px; /* Espacio entre los elementos */
+  gap: 15px; 
   margin-bottom: 30px;
   align-items: center;
 }
 
-/* Inputs y Selects */
 .form-input {
   width: 100%;
   padding: 12px 15px;
@@ -59,10 +48,9 @@
 }
 
 .form-input:focus {
-  border-color: #00796b; /* Color de enfoque */
+  border-color: #00796b;
 }
 
-/* Botones */
 .btn {
   padding: 12px 25px;
   border: none;
@@ -70,11 +58,11 @@
   font-size: 1rem;
   cursor: pointer;
   font-weight: 500;
-  white-space: nowrap; /* Evita que el texto del botón se parta */
+  white-space: nowrap; 
 }
 
 .primary {
-  background-color: #00796b; /* Verde (o el color principal de tu app) */
+  background-color: #00796b;
   color: white;
 }
 
@@ -87,9 +75,8 @@
   cursor: not-allowed;
 }
 
-/* Tabla Estilizada */
 .table-container {
-  overflow-x: auto; /* Para móviles */
+  overflow-x: auto; 
 }
 
 .styled-table {
@@ -103,7 +90,7 @@
 }
 
 .styled-table thead tr {
-  background-color: #00796b; /* Cabecera de la tabla */
+  background-color: #00796b; 
   color: #ffffff;
   text-align: left;
 }
@@ -118,14 +105,13 @@
 }
 
 .styled-table tbody tr:nth-of-type(even) {
-  background-color: #f3f3f3; /* Filas pares grisáceas */
+  background-color: #f3f3f3; 
 }
 
 .styled-table tbody tr:last-of-type {
   border-bottom: 2px solid #00796b;
 }
 
-/* RESPONSIVE: Si la pantalla es pequeña, apilar los inputs */
 @media (max-width: 600px) {
   .form-container {
     flex-direction: column;

@@ -26,8 +26,8 @@ export class Login {
 
         if (response && response.token) {
           localStorage.setItem('token', response.token);
-          alert('Inicio de sesión exitoso');
-          window.location.href = '/paises';
+          this.router.navigate(['/']); 
+          
         } else {
           this.error = 'Usuario o contraseña incorrectos';
         }
@@ -38,4 +38,5 @@ export class Login {
       }
     });
   }
+
 }
